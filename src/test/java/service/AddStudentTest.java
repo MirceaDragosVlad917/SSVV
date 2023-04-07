@@ -55,7 +55,7 @@ class AddStudentTest {
     void addStudentIDNull() throws IOException {
         this.initialize();
         Student s1 = new Student(null, "Andrei", 932, "dsafdsf");
-        Assertions.assertThrows(NullPointerException.class, () -> {
+        Assertions.assertThrows(ValidationException.class, () -> {
             s_test.addStudent(s1);
         });
     }
@@ -133,7 +133,7 @@ class AddStudentTest {
     @org.junit.jupiter.api.Test
     void addStudentGroupMAXINTMinus1() throws IOException {
         this.initialize();
-        Student s1 = new Student("128", "Mihai", Integer.MAX_VALUE-1, "dsgfdsg");
+        Student s1 = new Student("128", "Mihai", Integer.MAX_VALUE - 1, "dsgfdsg");
         s_test.addStudent(s1);
         Assertions.assertEquals(s1, student_test_repo.findOne("128"));
     }
