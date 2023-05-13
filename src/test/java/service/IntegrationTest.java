@@ -150,7 +150,7 @@ public class IntegrationTest {
         Tema t2 = mock_service.addTema(t1);
         Nota n1 = new Nota("1", "1", "1", 10D, LocalDate.now());
         double n2 = mock_service.addNota(n1, "Well done!");
-        Assertions.assertNull(t2);
+        Assertions.assertEquals(10.0, n2, 0.01);
     }
 
 }
